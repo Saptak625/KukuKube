@@ -16,10 +16,10 @@ function tileSelected(gridSize, diff, correct) {
 function gameOver() {
     document.getElementById('game').style.display = 'none';
     document.getElementById('final').style.display = 'block';
-    document.getElementById('grid_final').innerHTML = gridSize;
-    document.getElementById('diff_final').innerHTML = diff;
+    document.getElementById('grid_final').innerHTML = window.gridSize;
+    document.getElementById('diff_final').innerHTML = window.diff;
     document.getElementById('time_final').innerHTML = window.t_initial;
-    document.getElementById('score_final').innerHTML = w.score;
+    document.getElementById('score_final').innerHTML = window.score;
 }
 
 function makeNewGrid(gridSize, diff) {
@@ -45,6 +45,8 @@ function makeNewGrid(gridSize, diff) {
 
 function startGame(gridSize, diff, t) {
     //Set global variables
+    window.gridSize = gridSize;
+    window.diff = diff;
     window.t = t;
     window.t_initial = t;
     window.score = 0;
