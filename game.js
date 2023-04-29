@@ -7,6 +7,7 @@ function tileSelected(gridSize, diff, correct) {
         let score = Number(scoreElement.innerHTML);
         scoreElement.innerHTML = score + 1;
         makeNewGrid(gridSize, diff);
+        window.t = window.t_initial;
     } else {
         gameOver();
     }
@@ -43,19 +44,20 @@ function makeNewGrid(gridSize, diff) {
 }
 
 function startGame(gridSize, diff, t) {
-    let t_initial = t;
+    window.t = t;
+    window.t_initial = t;
 
     //Initialize first grid
     gridElement.style.gridTemplateColumns = `repeat(${gridSize}, 1fr)`;
     makeNewGrid(gridSize, Number(diff));
 
-    timeElement.innerHTML = t;
+    timeElement.innerHTML = window.t;
     scoreElement.innerHTML = 0;
 
     function countdown() {
-        if (t > 0) {
-            t--;
-            timeElement.innerHTML = t;
+        if (window.t > 0) {
+            window.t--;
+            timeElement.innerHTML = window.t;
         } else {
             clearInterval(countdown);
             gameOver();
