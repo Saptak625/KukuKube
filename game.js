@@ -4,8 +4,8 @@ let gridElement = document.getElementById('game_grid');
 
 function tileSelected(gridSize, diff, correct) {
     if (correct) {
-        let score = Number(scoreElement.innerHTML);
-        scoreElement.innerHTML = score + 1;
+        window.score++;
+        scoreElement.innerHTML = window.score;
         makeNewGrid(gridSize, diff);
         window.t = window.t_initial;
     } else {
@@ -18,8 +18,8 @@ function gameOver() {
     document.getElementById('final').style.display = 'block';
     document.getElementById('grid_final').innerHTML = gridSize;
     document.getElementById('diff_final').innerHTML = diff;
-    document.getElementById('time_final').innerHTML = t_initial;
-    document.getElementById('score_final').innerHTML = document.getElementById('score').innerHTML;
+    document.getElementById('time_final').innerHTML = window.t_initial;
+    document.getElementById('score_final').innerHTML = w.score;
 }
 
 function makeNewGrid(gridSize, diff) {
@@ -44,15 +44,17 @@ function makeNewGrid(gridSize, diff) {
 }
 
 function startGame(gridSize, diff, t) {
+    //Set global variables
     window.t = t;
     window.t_initial = t;
+    window.score = 0;
 
     //Initialize first grid
     gridElement.style.gridTemplateColumns = `repeat(${gridSize}, 1fr)`;
     makeNewGrid(gridSize, Number(diff));
 
     timeElement.innerHTML = window.t;
-    scoreElement.innerHTML = 0;
+    scoreElement.innerHTML = window.score;
 
     function countdown() {
         if (window.t > 0) {
