@@ -6,8 +6,19 @@ function tileSelected(gridSize, diff, correct) {
     if (correct) {
         let score = Number(scoreElement.innerHTML);
         scoreElement.innerHTML = score + 1;
+        makeNewGrid(gridSize, diff);
+    } else {
+        gameOver();
     }
-    makeNewGrid(gridSize, diff);
+}
+
+function gameOver() {
+    document.getElementById('game').style.display = 'none';
+    document.getElementById('final').style.display = 'block';
+    document.getElementById('grid_final').innerHTML = gridSize;
+    document.getElementById('diff_final').innerHTML = diff;
+    document.getElementById('time_final').innerHTML = t_initial;
+    document.getElementById('score_final').innerHTML = document.getElementById('score').innerHTML;
 }
 
 function makeNewGrid(gridSize, diff) {
@@ -47,12 +58,7 @@ function startGame(gridSize, diff, t) {
             timeElement.innerHTML = t;
         } else {
             clearInterval(countdown);
-            document.getElementById('game').style.display = 'none';
-            document.getElementById('final').style.display = 'block';
-            document.getElementById('grid_final').innerHTML = gridSize;
-            document.getElementById('diff_final').innerHTML = diff;
-            document.getElementById('time_final').innerHTML = t_initial;
-            document.getElementById('score_final').innerHTML = document.getElementById('score').innerHTML;
+            gameOver();
         }
     }
     setInterval(countdown, 1000);
