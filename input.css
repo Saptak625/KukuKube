@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.rounded-square {
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
+    border-radius: 10px;
+    background-color: #999;
+    border: none;
+}

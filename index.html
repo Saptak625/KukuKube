@@ -1,23 +1,68 @@
 <!doctype html>
-<html data-theme="dracula">
+<html data-theme="halloween">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="output.css" rel="stylesheet">
+  <script type="module" src="game.js"></script>
+  <script type="module" src="main.js"></script>
 </head>
 
 <body>
   <div class="hero min-h-screen bg-base-200">
     <div class="hero-content text-center">
-      <div class="max-w-md">
+      <div class="max-w-md" id="landing">
         <h1 class="text-5xl font-bold">Kuku Kube</h1>
         <p class="py-6">
           Kuku Kube is a simple game where you have to find the different color square in the grid of squares.
         </p>
-        <button class="btn btn-primary">Get Started</button>
+        <form action="" method="get" class="flex justify-center">
+          <div class="form-control w-full max-w-xs">
+            <label class="label" for="grid">
+              <span class="label-text">Grid Size (2-10):</span>
+            </label>
+            <input type="number" value="5" id="grid" name="grid" class="input input-bordered w-full max-w-xs mb-2"
+              min="2" max="10" />
+            <label class="label" for="diff">
+              <span class="label-text">Difficulty (1-100):</span>
+            </label>
+            <input type="number" value="40" id="diff" name="diff" class="input input-bordered w-full max-w-xs mb-2"
+              min="1" max="100" />
+            <label class="label" for="t">
+              <span class="label-text">Time in Seconds:</span>
+            </label>
+            <input type="number" value="20" id="t" name="t" class="input input-bordered w-full max-w-xs mb-2" />
+            <input type="submit" class="btn btn-primary mt-6" value="Start Game"></input>
+          </div>
+        </form>
+      </div>
+      <div class="max-w-md mb-3" id="game">
+        <h3 class="text-3xl font-bold">Time Remaining: <span id="time" class="pl-1">20</span></h3>
+        <h3 class="text-3xl font-bold mb-3">Score: <span id="score" class="pl-1">0</span></h3>
+        <div class="grid grid-cols-3 gap-1 p-1 bg-white rounded-lg" style="width: 30rem;" id="game_grid">
+          <button class="rounded-square rounded-lg"></button>
+          <button class="rounded-square rounded-lg"></button>
+          <button class="rounded-square rounded-lg"></button>
+          <button class="rounded-square rounded-lg"></button>
+          <button class="rounded-square rounded-lg"></button>
+          <button class="rounded-square rounded-lg"></button>
+          <button class="rounded-square rounded-lg"></button>
+          <button class="rounded-square rounded-lg"></button>
+          <button class="rounded-square rounded-lg"></button>
+        </div>
+      </div>
+      <div class="max-w-md" id="final">
+        <h1 class="text-5xl font-bold">Kuku Kube</h1>
+        <h1 class="text-5xl font-bold">Game Over!</h1>
+        <h3 class="text-3xl font-bold mt-6">Grid Size (2-10): <span id="grid_final" class="pl-1">5</span></h3>
+        <h3 class="text-3xl font-bold">Difficulty (1-100): <span id="diff_final" class="pl-1">40</span></h3>
+        <h3 class="text-3xl font-bold">Time in Seconds: <span id="time_final" class="pl-1">20</span></h3>
+        <h3 class="text-3xl font-bold mb-6">Final Score: <span id="score_final" class="pl-1">0</span></h3>
+        <a href="/" class="btn btn-primary">Play Again</a>
       </div>
     </div>
+  </div>
   </div>
 </body>
 
