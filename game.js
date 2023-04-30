@@ -18,6 +18,7 @@ function gameOver() {
     document.getElementById('final').style.display = 'block';
     document.getElementById('grid_final').innerHTML = window.gridSize;
     document.getElementById('diff_final').innerHTML = window.diff;
+    document.getElementById('diff_scale_final').innerHTML = window.diff_scale === 'on' ? 'Yes' : 'No';
     document.getElementById('time_final').innerHTML = window.t_initial;
     document.getElementById('score_final').innerHTML = window.score;
 }
@@ -29,8 +30,12 @@ function makeNewGrid(gridSize, diff) {
     let g = Math.floor(Math.random() * 255);
     let b = Math.floor(Math.random() * 255);
 
+    let scaled_diff = window.diff;
+    if (window.diff_scale === 'on') {
+        scaled_diff = Math.round(diff * Math.pow(0.95, window.score));
+    }
     let color = `rgb(${r}, ${g}, ${b})`;
-    let lighterColor = `rgb(${r + diff}, ${g + diff}, ${b + diff})`;
+    let lighterColor = `rgb(${r + scaled_diff}, ${g + scaled_diff}, ${b + scaled_diff})`;
 
     // Generate random index for the correct button
     let correctIndex = Math.floor(Math.random() * gridSize * gridSize);
@@ -43,10 +48,11 @@ function makeNewGrid(gridSize, diff) {
     }
 }
 
-function startGame(gridSize, diff, t) {
+function startGame(gridSize, diff, diff_scale, t) {
     //Set global variables
     window.gridSize = gridSize;
     window.diff = diff;
+    window.diff_scale = diff_scale;
     window.t = t;
     window.t_initial = t;
     window.score = 0;

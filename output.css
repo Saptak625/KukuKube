@@ -8483,6 +8483,11 @@ html {
   clear: none;
 }
 
+.my-auto {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
 .mb-2 {
   margin-bottom: 0.5rem;
 }
@@ -8501,6 +8506,10 @@ html {
 
 .mt-6 {
   margin-top: 1.5rem;
+}
+
+.ml-2 {
+  margin-left: 0.5rem;
 }
 
 .box-border {
@@ -8602,8 +8611,20 @@ html {
   display: none;
 }
 
+.h-\[1em\] {
+  height: 1em;
+}
+
+.h-full {
+  height: 100%;
+}
+
 .min-h-screen {
   min-height: 100vh;
+}
+
+.w-\[1em\] {
+  width: 1em;
 }
 
 .w-full {

@@ -29,8 +29,14 @@
             <label class="label" for="diff">
               <span class="label-text">Difficulty (1-100):</span>
             </label>
-            <input type="number" value="40" id="diff" name="diff" class="input input-bordered w-full max-w-xs mb-2"
-              min="1" max="100" />
+            <input type="number" value="40" id="diff" name="diff" class="input input-bordered mb-2" min="1" max="100" />
+            <div class="flex content-center mb-2">
+              <label class="label" for="diff_scale">
+                <span class="label-text">Scale Difficulty:</span>
+              </label>
+              <input type="checkbox" id="diff_scale" name="diff_scale" checked="checked"
+                class="ml-2 my-auto checkbox" />
+            </div>
             <label class="label" for="t">
               <span class="label-text">Time in Seconds:</span>
             </label>
@@ -59,6 +65,7 @@
         <h1 class="text-5xl font-bold">Game Over!</h1>
         <h3 class="text-3xl font-bold mt-6">Grid Size (2-10): <span id="grid_final" class="pl-1">5</span></h3>
         <h3 class="text-3xl font-bold">Difficulty (1-100): <span id="diff_final" class="pl-1">40</span></h3>
+        <h3 class="text-3xl font-bold">Scale Difficulty: <span id="diff_scale_final" class="pl-1">40</span></h3>
         <h3 class="text-3xl font-bold">Time in Seconds: <span id="time_final" class="pl-1">20</span></h3>
         <h3 class="text-3xl font-bold mb-6">Final Score: <span id="score_final" class="pl-1">0</span></h3>
         <a href="/" class="btn btn-primary">Play Again</a>

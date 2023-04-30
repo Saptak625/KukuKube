@@ -12,9 +12,10 @@ if (url.includes('?')) {
     // Get the value of "some_key" in eg "https://example.com/?some_key=some_value"
     let gridSize = params.grid;
     let diff = params.diff;
+    let diff_scale = params.diff_scale;
     let t = params.t;
 
-    startGame(gridSize, diff, t);
+    startGame(gridSize, diff, diff_scale, t);
 } else {
     document.getElementById('game').style.display = 'none';
     document.getElementById('game_grid').style.display = 'none';
