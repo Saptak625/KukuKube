@@ -37,6 +37,11 @@
               <input type="checkbox" id="diff_scale" name="diff_scale" checked="checked"
                 class="ml-2 my-auto checkbox" />
             </div>
+            <label class="label" for="diff">
+              <span class="label-text">Difficulty Factor (0-1):</span>
+            </label>
+            <input type="number" value="0.9" step="any" id="diff_factor" name="diff_factor"
+              class="input input-bordered mb-2" min="0" max="1" />
             <label class="label" for="t">
               <span class="label-text">Time in Seconds:</span>
             </label>
@@ -65,7 +70,9 @@
         <h1 class="text-5xl font-bold">Game Over!</h1>
         <h3 class="text-3xl font-bold mt-6">Grid Size (2-10): <span id="grid_final" class="pl-1">5</span></h3>
         <h3 class="text-3xl font-bold">Difficulty (1-100): <span id="diff_final" class="pl-1">40</span></h3>
-        <h3 class="text-3xl font-bold">Scale Difficulty: <span id="diff_scale_final" class="pl-1">40</span></h3>
+        <h3 class="text-3xl font-bold">Scale Difficulty: <span id="diff_scale_final" class="pl-1">Yes</span></h3>
+        <h3 class="text-3xl font-bold">Difficulty Factor: <span id="diff_factor_final" class="pl-1">0.9</span></h3>
+        <h3 class="text-3xl font-bold">Max Difficulty: <span id="diff_max_final" class="pl-1">40</span></h3>
         <h3 class="text-3xl font-bold">Time in Seconds: <span id="time_final" class="pl-1">20</span></h3>
         <h3 class="text-3xl font-bold mb-6">Final Score: <span id="score_final" class="pl-1">0</span></h3>
         <a href="/" class="btn btn-primary">Play Again</a>

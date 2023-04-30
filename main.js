@@ -13,9 +13,10 @@ if (url.includes('?')) {
     let gridSize = params.grid;
     let diff = params.diff;
     let diff_scale = params.diff_scale;
+    let diff_factor = params.diff_factor;
     let t = params.t;
 
-    startGame(gridSize, diff, diff_scale, t);
+    startGame(gridSize, diff, diff_scale, diff_factor, t);
 } else {
     document.getElementById('game').style.display = 'none';
     document.getElementById('game_grid').style.display = 'none';
