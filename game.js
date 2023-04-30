@@ -32,10 +32,11 @@ function makeNewGrid(gridSize, diff) {
     let g = Math.floor(Math.random() * 255);
     let b = Math.floor(Math.random() * 255);
 
-    let scaled_diff = window.diff;
+    let scaled_diff = diff;
     if (window.diff_scale === 'on') {
         scaled_diff = Math.ceil(diff * Math.pow(window.diff_factor, window.score));
     }
+    console.log(scaled_diff);
     let color = `rgb(${r}, ${g}, ${b})`;
     let lighterColor = `rgb(${r + scaled_diff}, ${g + scaled_diff}, ${b + scaled_diff})`;
 
