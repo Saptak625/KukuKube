@@ -20,7 +20,7 @@ function gameOver() {
     document.getElementById('diff_final').innerHTML = window.diff;
     document.getElementById('diff_scale_final').innerHTML = window.diff_scale === 'on' ? 'Yes' : 'No';
     document.getElementById('diff_factor_final').innerHTML = window.diff_factor;
-    document.getElementById('diff_max_final').innerHTML = window.diff_scale === 'on' ? Math.round(diff * Math.pow(window.diff_factor, window.score)) : window.diff;
+    document.getElementById('diff_max_final').innerHTML = window.diff_scale === 'on' ? Math.ceil(diff * Math.pow(window.diff_factor, window.score)) : window.diff;
     document.getElementById('time_final').innerHTML = window.t_initial;
     document.getElementById('score_final').innerHTML = window.score;
 }
@@ -34,7 +34,7 @@ function makeNewGrid(gridSize, diff) {
 
     let scaled_diff = window.diff;
     if (window.diff_scale === 'on') {
-        scaled_diff = Math.round(diff * Math.pow(window.diff_factor, window.score));
+        scaled_diff = Math.ceil(diff * Math.pow(window.diff_factor, window.score));
     }
     let color = `rgb(${r}, ${g}, ${b})`;
     let lighterColor = `rgb(${r + scaled_diff}, ${g + scaled_diff}, ${b + scaled_diff})`;
